@@ -1,0 +1,6 @@
+node_modules
+*.log
+json/prouctos.json
+public/img/pokemons
+public/img/logo.png
+public/js/app.js
