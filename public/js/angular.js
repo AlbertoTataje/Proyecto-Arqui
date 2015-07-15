@@ -7,6 +7,7 @@
 	var app = angular.module('producto',[
 		'ngRoute',
 		'angular-md5',
+		'btford.socket-io',
 		'producto.controllers',
 		'producto.directives',
 		'producto.filters',

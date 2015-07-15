@@ -15,11 +15,18 @@ module.exports = function (server) {
     socket.on('message', function (message) {
         
         // Send video to everyone
-        socket.broadcast.emit('message', message)
 
         // Send video to sender
-        socket.emit('messageack', message)
+        //socket.emit('messageack', message)
     })
+
+    let i = 0
+    setInterval(function(){
+      socket.emit ('message', {
+        message:i
+      })
+      i++
+    },1000)
 
   }
 }

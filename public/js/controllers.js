@@ -45,14 +45,20 @@
 
     }])
 
-    .controller('ProductoController', ['$rootScope', '$scope', '$routeParams', 'productoService', function ($rootScope, $scope, $routeParams, productoService) {
+    .controller('ProductoController', ['$rootScope', '$scope', '$routeParams', 'productoService','chatSocket', function ($rootScope, $scope, $routeParams, productoService, chatSocket) {
       var name = $routeParams.name;
+      $scope.messages = [];
 
       productoService.byName(name)
       .then(function (data) {
         $rootScope.title = data.name;
         $scope.producto = data;
       });
+
+      chatSocket.on('message',function (data){
+        $scope.messages.push(data.message);
+      });
+
     }])
 
     .controller('TabsController', ['$scope', function ($scope) {

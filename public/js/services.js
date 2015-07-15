@@ -83,6 +83,12 @@
         getComments: getComments
       };
 
+    }])
+    
+    .factory('chatSocket',['socketFactory',function (socketFactory){
+        return socketFactory();
     }]);
+    //otro factory
+
 
 })();
