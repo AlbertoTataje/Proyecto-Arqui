@@ -1,0 +1,23 @@
+<div>
+  <div class="page-header">
+    <div class="row">
+      <div class="col-xs-6">
+        <h1>Tienda Virtual</h1>
+        <h2 ng-if="type"><span class="label type-{{type | lowercase}}">{{type}}</span></h2>
+      </div>
+      <div class="col-xs-6">
+        <div class="pull-right">
+          <h1><small>Showing <span class="badge">{{productos.length}}</span> Productos</small></h1>
+          <div class="input-group">
+            <input ng-model="searchTerm" ng-keyup="search()" type="text" class="form-control input-lg" placeholder="Search">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+    <div class="row" ng-repeat="group in groupped">
+     <div class="col-lg-3" ng-repeat="producto in group">
+      <producto-card></producto-card>
+    </div>
+  </div>
+</div>

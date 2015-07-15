@@ -1,0 +1,9 @@
+<div class="text-center" ng-repeat="producto in producto.similar">
+  <a href="/#/producto/{{producto | normalize}}">
+    <img src="{{producto | imageify}}" width="160">
+    <p>
+      <strong>{{producto}}</strong>
+    </p>
+  </a>
+  <span ng-hide="$last" class="glyphicon glyphicon-arrow-down"></span>
+</div>

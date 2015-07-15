@@ -4,6 +4,7 @@ const xhr = require('xhr')
 const socket = io.connect()
 
 
+
 mandar.addEventListener('click', function (e) {
   e.preventDefault()
   //probar ajax

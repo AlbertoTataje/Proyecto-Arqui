@@ -27,148 +27,24 @@
     </div>
     <div class="container-fluid">
       <!-- producto -->
-      <div ng-controller="productoController as pkmCtrl">
-        <div class="page-header">
-          <h1>
-            {{pkmCtrl.producto.name}}
-            <small>{{pkmCtrl.producto.marca}}</small>
-            <span class="label label-primary pull-right">#{{pkmCtrl.producto.id}}</span>
-          </h1>
-        </div>
-        <div class="row">
-          <div class="col-md-6">
-            <img class="avatar center-block" ng-src="{{pkmCtrl.producto.name | imageify}}">
-          </div>
-          <!-- Tabs -->
-          <div class="col-md-6" ng-controller="TabsController as tabs">
-            <ul class="nav nav-tabs nav-justified">
-              <li ng-class="{ active:tabs.tab === 1 }"><a href="#" ng-click="tabs.selectTab(1)">Producto</a></li>
-              <li ng-class="{ active:tabs.tab === 2 }"><a href="#" ng-click="tabs.selectTab(2)">Caracteristicas</a></li>
-              <li ng-class="{ active:tabs.tab === 3 }"><a href="#" ng-click="tabs.selectTab(3)">Similares</a></li>
-            </ul>
-            <div class="tab-content">
-              <!-- Pokedex -->
-              <div ng-show="tabs.tab === 1">
-                <ul class="list-group">
-                  <li class="list-group-item">
-                    <strong>Type</strong>
-                    <span class="pull-right">
-                      <span class="label type type-{{type | lowercase}}" ng-repeat="type in pkmCtrl.producto.type">
-                        {{type}}
-                      </span>
-                    </span>
-                  </li>
-                  <li class="list-group-item">
-                    <strong>Height</strong>
-                    <span class="pull-right">{{pkmCtrl.producto.height}}</span>
-                  </li>
-                  <li class="list-group-item">
-                    <strong>Weight</strong>
-                    <span class="pull-right">{{pkmCtrl.producto.weight}}</span>
-                  </li>
-                  <li class="list-group-item">
-                    <strong>Caracteristicas</strong>
-                    <ul>
-                      <li ng-repeat="caracteristica in pkmCtrl.producto.caracteristicas">
-                        {{caracteristica}}
-                      </li>
-                    </ul>
-                  </li>
-                </ul>
-              </div>
-              <!-- Stats -->
-              <div ng-show="tabs.tab === 2">
-                <ul class="list-group">
-                  <li class="list-group-item">
-                    <strong>Precio</strong>
-                    <span class="badge">{{pkmCtrl.producto.stats.precio}}</span>
-                  </li>
-                  <li class="list-group-item">
-                    <strong>Stock</strong>
-                    <span class="badge">{{pkmCtrl.producto.stats.stock}}</span>
-                  </li>
-                  <li class="list-group-item">
-                    <strong>Año</strong>
-                    <span class="badge">{{pkmCtrl.producto.stats.annio}}</span>
-                  </li>
-                  <li class="list-group-item">
-                    <strong>Special </strong>
-                    <span class="badge">{{pkmCtrl.producto.stats['sp.atk']}}</span>
-                  </li>
-                  <li class="list-group-item">
-                    <strong>Special </strong>
-                    <span class="badge">{{pkmCtrl.producto.stats['sp.def']}}</span>
-                  </li>
-                  <li class="list-group-item">
-                    <strong>Garantía</strong>
-                    <span class="badge">{{pkmCtrl.producto.stats.garantia}}</span>
-                  </li>
-                  <li class="list-group-item">
-                    <strong>Descuento</strong>
-                    <span class="badge">{{pkmCtrl.producto.stats.descuento}}</span>
-                  </li>
-                </ul>
-              </div>
-              <!-- Evolution -->
-              <div ng-show="tabs.tab === 3">
-                <div class="text-center" ng-repeat="producto in pkmCtrl.producto.similares">
-                  <a href="#">
-                    <img src="{{producto | imageify}}" width="160">
-                    <p>
-                      <strong>{{producto}}</strong>
-                    </p>
-                  </a>
-                  <span ng-hide="$last" class="glyphicon glyphicon-arrow-down"></span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- /tabs -->
-        </div>
-        <!--comments-->
-        <button class="btn btn-primary">Show comments <span class="badge">2</span></button>
-        <div class="panel panel-primary">
-          <div class="panel-heading">
-            <h1 class="panel-title">Comments <button class="close pull-right">&times;</button></h1>
-          </div>
-          <div class="panel-body">
-            <form class="form-horizontal" role="form">
-              <div class="form-group">
-                <div class="col-sm-6">
-                  <textarea placeholder="Please tell us what you think about {{pkmCtrl.producto.name}}" class="form-control"></textarea>
-                </div>
-                <div class="col-sm-4">
-                  <input type="email" placeholder="Please enter your email address" class="form-control">
-                  <label>
-                    <input id="anonymous" type="checkbox">
-                    Anonymous
-                  </label>
-                </div>
-                <div class="col-sm-2">
-                  <button class="btn btn-lg">Comment</button>
-                </div>
-              </div>
-            </form>
-            <blockquote>
-              <p>OMG Bulbasaur is AMAZING!!!</p>
-              <footer>
-                Comment by <a href="mailto:pepe@pepe.com">pepe@pepe.com</a> on <span>Sep 12, 2014, 11:00:00 PM</span>
-              </footer>
-            </blockquote>
-            <blockquote>
-              <p>Nah, I hate it -_-</p>
-              <footer>
-                Comment by <em>Anonymous</em> on <span>JUlio 12, 2015, 11:00:00 PM</span>
-              </footer>
-            </blockquote>
-          </div>
-        </div>
-        <!--/comments-->
-      </div>
+      <div ng-view></div> 
+    </div>
       <!-- /producto -->
     </div>
+
+    <script src="/js/lib/underscore-min.js"></script>
     <script src="/js/lib/angular.min.js"></script>
-    <script src="/js/appexampledata.js"></script>
+    <script src="/js/lib/angular-route.min.js"></script>
+    <script src="/js/lib/angular-md5.min.js"></script>
+    
     <script src="/js/app.js"></script>
+
+    <script src="/js/angular.js"></script>
+    <script src="/js/controllers.js"></script>
+    <script src="/js/directives.js"></script>
+    <script src="/js/filters.js"></script>
+    <script src="/js/services.js"></script>
+    
+
   </body>
 </html>

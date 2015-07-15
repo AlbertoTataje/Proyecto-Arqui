@@ -1,0 +1,47 @@
+
+<!-- producto -->
+<div ng-if="!producto">
+  <div class="page-header">
+    <h1>Error</h1>
+  </div>
+  <div class="alert alert-danger">
+    <p>Producto not found</p>
+  </div>
+</div>
+<div ng-if="producto">
+  <div class="page-header">
+    <producto-name></producto-name>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <producto-image></producto-image>
+    </div>
+    <!-- Tabs -->
+    <div class="col-md-6" ng-controller="TabsController">
+      <ul class="nav nav-tabs nav-justified">
+        <li ng-class="{ active:isActive(1) }"><a ng-click="selectTab(1)">Producto</a></li>
+        <li ng-class="{ active:isActive(2) }"><a ng-click="selectTab(2)">Características</a></li>
+        <li ng-class="{ active:isActive(3) }"><a ng-click="selectTab(3)">Similares</a></li>
+      </ul>
+      <div class="tab-content">
+        <!-- Pokedex -->
+        <div ng-show="isActive(1)">
+          <producto-data></producto-data>
+        </div>
+        <!-- Caracteristicas-->
+        <div ng-show="isActive(2)">
+          <producto-caracteristicas></producto-caracteristicas>
+        </div>
+        <!-- Similares -->
+        <div ng-show="isActive(3)">
+          <producto-similar></producto-similar>
+        </div>
+      </div>
+    </div>
+    <!-- /tabs -->
+  </div>
+  <!-- comments -->
+  <producto-comments name="{{producto.name}}"></producto-comments>
+  <!-- /comments -->
+</div>
+<!-- /producto -->

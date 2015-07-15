@@ -15,10 +15,10 @@ const mount = st({
 })
 
 
-router.post('/productos', function (req, res) {
+router.get('/productos', function (req, res) {
     
     //envia el json
-  let index = path.join(__dirname, 'json', 'productos.json')
+  let index = path.join(__dirname, '..', 'json/productos.json')
   let rs = fs.createReadStream(index)
 
   res.setHeader('Content-Type', 'application/json')

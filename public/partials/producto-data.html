@@ -1,0 +1,24 @@
+<ul class="list-group">
+  <li class="list-group-item">
+    <strong>Type</strong>
+    <span class="pull-right">
+      <producto-type></producto-type>
+    </span>
+  </li>
+  <li class="list-group-item">
+    <strong>Height</strong>
+    <span class="pull-right">{{producto.height}}</span>
+  </li>
+  <li class="list-group-item">
+    <strong>Weight</strong>
+    <span class="pull-right">{{producto.weight}}</span>
+  </li>
+  <li class="list-group-item">
+    <strong>Características</strong>
+    <ul>
+      <li ng-repeat="caracteristica in producto.caracteristicas">
+        {{caracteristica}}
+      </li>
+    </ul>
+  </li>
+</ul>
